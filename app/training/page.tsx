@@ -5,6 +5,8 @@ export const metadata: Metadata = {
   title: "Training & speaking · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "CPD training and speaking for counsellors, NHS teams and reproductive health professionals. Specialist fertility psychotherapy framework, by Dr Marie Meechan, PhD.",
+  // Unlisted page — kept out of search indexes (source had <meta name="robots" content="noindex">).
+  robots: { index: false },
 };
 
 export default function TrainingPage() {
