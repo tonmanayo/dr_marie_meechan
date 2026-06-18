@@ -18,6 +18,9 @@ export function TestimonialRotator({ items }: { items: Testimonial[] }) {
     return () => {
       if (timer.current) clearInterval(timer.current);
     };
+    // `restart` only reads `items.length`; `items` is a static prop on this content
+    // site, so re-keying the interval on length alone is sufficient and avoids
+    // recreating it every render.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items.length]);
 
