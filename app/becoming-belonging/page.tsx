@@ -157,8 +157,8 @@ export default function BecomingBelongingPage() {
       </section>
 
       {/* Strand two */}
-      <section style={{ background: "#DCE6EE" }} id="without-children">
-        <div className="container split" style={{ scrollMarginTop: "90px" }}>
+      <section style={{ background: "#DCE6EE", scrollMarginTop: "90px" }} id="without-children">
+        <div className="container split">
           <div className="stack stack-6 reveal">
             <div className="eyebrow-h">
               <span className="eyebrow" style={{ margin: 0, color: "#5E7C92" }}>
