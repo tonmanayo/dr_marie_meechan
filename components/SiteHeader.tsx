@@ -61,7 +61,7 @@ export function SiteHeader() {
               className="burger"
               type="button"
               aria-label="Open menu"
-              aria-expanded={open}
+              aria-expanded={open ? "true" : "false"}
               onClick={() => setOpen(true)}
             >
               <i className="ph-light ph-list" aria-hidden="true" />

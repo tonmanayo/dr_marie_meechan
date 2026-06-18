@@ -21,3 +21,13 @@ test("mobile menu opens and closes", async () => {
   await user.click(screen.getByRole("button", { name: "Close menu" }));
   expect(openBtn).toHaveAttribute("aria-expanded", "false");
 });
+
+test("escape key closes the mobile menu", async () => {
+  const user = userEvent.setup();
+  render(<SiteHeader />);
+  const openBtn = screen.getByRole("button", { name: "Open menu" });
+  await user.click(openBtn);
+  expect(openBtn).toHaveAttribute("aria-expanded", "true");
+  await user.keyboard("{Escape}");
+  expect(openBtn).toHaveAttribute("aria-expanded", "false");
+});
