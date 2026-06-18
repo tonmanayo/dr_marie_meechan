@@ -232,10 +232,10 @@ export default function AboutPage() {
                 research, and am developing a training programme for fellow counsellors and
                 healthcare professionals working with fertility impairment.
               </p>
-              <a className="arrow-link mt-6" href="/training">
+              <Link className="arrow-link mt-6" href="/training">
                 For professionals - training &amp; speaking - coming soon{" "}
                 <i className="ph-light ph-arrow-right" aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
           <div className="stack stack-6 reveal">
