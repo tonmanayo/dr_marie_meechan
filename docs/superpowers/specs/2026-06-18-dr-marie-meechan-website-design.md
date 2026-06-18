@@ -15,17 +15,18 @@ The website must look **exactly** as designed. Fidelity is the primary constrain
 
 ## Stack
 
-| Concern   | Choice |
-|-----------|--------|
-| Framework | Next.js 16 + TypeScript, App Router, Turbopack, React Compiler |
-| Hosting   | Netlify (free tier), auto-deploy from GitHub, existing domain |
+| Concern   | Choice                                                                                                                                                |
+| --------- | ----------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Framework | Next.js 16 + TypeScript, App Router, Turbopack, React Compiler                                                                                        |
+| Hosting   | Netlify (free tier), auto-deploy from GitHub, existing domain                                                                                         |
 | Styling   | Existing `tokens.css` + `site.css` imported verbatim as global CSS; CSS Modules for any new component-scoped styles. No Tailwind / styled-components. |
-| Blog      | Sanity (free tier) — visual editor; Next pulls posts, publish triggers a Netlify rebuild via webhook *(Phase 2)* |
-| Email     | Netlify Forms — contact form + booking button email Dr Meechan, zero backend *(Phase 3)* |
-| Icons     | Phosphor icons (as in the design) |
-| Fonts     | Self-hosted Cormorant Garamond + Lato (from the design's `assets/fonts`) |
+| Blog      | Sanity (free tier) — visual editor; Next pulls posts, publish triggers a Netlify rebuild via webhook _(Phase 2)_                                      |
+| Email     | Netlify Forms — contact form + booking button email Dr Meechan, zero backend _(Phase 3)_                                                              |
+| Icons     | Phosphor icons (as in the design)                                                                                                                     |
+| Fonts     | Self-hosted Cormorant Garamond + Lato (from the design's `assets/fonts`)                                                                              |
 
 ### Why this stack
+
 - **Next.js** is the user's known stack; consistency across their projects and confident maintenance.
 - **Netlify** has official Next.js support (auto-detected, free tier runs route handlers/SSR/ISR) and
   Netlify Forms solves the email feature with no backend.
@@ -35,6 +36,7 @@ The website must look **exactly** as designed. Fidelity is the primary constrain
 ## Source design
 
 Located at `~/Downloads/Dr marie Meechan Website V1/`:
+
 - Static multi-page HTML: `index.html`, `about.html`, `sessions.html`, `training.html`,
   `contact.html`, `letters.html` (+ `letter-*.html` posts), `your-journey.html`,
   `becoming-belonging.html`.
@@ -63,6 +65,7 @@ Located at `~/Downloads/Dr marie Meechan Website V1/`:
 - The contact form keeps its existing success-state UI; it does **not** email yet in Phase 1.
 
 ### Data flow (Phase 1)
+
 Fully static. No runtime data fetching. Pages render at build time and serve as static assets.
 
 ## Tooling & quality gates (Phase 1)
@@ -74,8 +77,10 @@ Fully static. No runtime data fetching. Pages render at build time and serve as 
 - **npm scripts**: `dev`, `build`, `start`, `lint`, `typecheck`, `format:check`, `test`.
 
 ### GitHub Actions CI
+
 A workflow (`.github/workflows/ci.yml`) that runs on every push and pull request and **fails if
 anything is broken**:
+
 1. Install dependencies (cached).
 2. `typecheck` — `tsc --noEmit`.
 3. `lint` — ESLint.
@@ -86,11 +91,14 @@ anything is broken**:
 Netlify deploys from `main` after CI passes (deploy previews on PRs).
 
 ## Error handling
+
 - Contact form: client-side validation + graceful failure message (full email wiring in Phase 3).
 - A `not-found.tsx` 404 page styled to match the design.
 
 ## Testing
+
 Test-first per the project's TDD practice. Phase 1 covers:
+
 - Interactive components: mobile menu open/close, FAQ accordion toggle, rotating tagline,
   scroll-reveal behaviour, contact-form success state.
 - A build/deploy smoke check (CI `next build`).
@@ -108,12 +116,14 @@ Test-first per the project's TDD practice. Phase 1 covers:
    notifications to Dr Meechan; keep existing success UI.
 
 ## Decisions & assumptions
+
 - **Booking button = emails Dr Meechan** (per brief). Real self-serve scheduling (e.g. Cal.com free
   tier) is explicitly out of scope; revisit only if requested later.
 - Domain is already owned; DNS will point to Netlify.
 - Phase 1 is the first deliverable; Phases 2–3 are follow-on work with their own plans.
 
 ## Out of scope
+
 - Self-serve calendar/scheduling integration.
 - Tailwind / styled-components / SWR / Framer Motion.
 - Any redesign — the design is fixed.

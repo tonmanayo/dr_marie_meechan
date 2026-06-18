@@ -12,18 +12,18 @@
 
 ## Source → route mapping
 
-| Source file | Route | `page.tsx` path |
-|---|---|---|
-| `index.html` | `/` | `app/page.tsx` |
-| `about.html` | `/about` | `app/about/page.tsx` |
-| `sessions.html` | `/sessions` | `app/sessions/page.tsx` |
-| `your-journey.html` | `/your-journey` | `app/your-journey/page.tsx` |
-| `becoming-belonging.html` | `/becoming-belonging` | `app/becoming-belonging/page.tsx` |
-| `training.html` | `/training` | `app/training/page.tsx` |
-| `letters.html` | `/letters` | `app/letters/page.tsx` |
-| `contact.html` | `/contact` | `app/contact/page.tsx` |
-| `letter-disenfranchised-grief.html` | `/letters/disenfranchised-grief` | `app/letters/disenfranchised-grief/page.tsx` |
-| `letter-petri-dish-loss.html` | `/letters/petri-dish-loss` | `app/letters/petri-dish-loss/page.tsx` |
+| Source file                          | Route                             | `page.tsx` path                               |
+| ------------------------------------ | --------------------------------- | --------------------------------------------- |
+| `index.html`                         | `/`                               | `app/page.tsx`                                |
+| `about.html`                         | `/about`                          | `app/about/page.tsx`                          |
+| `sessions.html`                      | `/sessions`                       | `app/sessions/page.tsx`                       |
+| `your-journey.html`                  | `/your-journey`                   | `app/your-journey/page.tsx`                   |
+| `becoming-belonging.html`            | `/becoming-belonging`             | `app/becoming-belonging/page.tsx`             |
+| `training.html`                      | `/training`                       | `app/training/page.tsx`                       |
+| `letters.html`                       | `/letters`                        | `app/letters/page.tsx`                        |
+| `contact.html`                       | `/contact`                        | `app/contact/page.tsx`                        |
+| `letter-disenfranchised-grief.html`  | `/letters/disenfranchised-grief`  | `app/letters/disenfranchised-grief/page.tsx`  |
+| `letter-petri-dish-loss.html`        | `/letters/petri-dish-loss`        | `app/letters/petri-dish-loss/page.tsx`        |
 | `letter-after-the-miracle-baby.html` | `/letters/after-the-miracle-baby` | `app/letters/after-the-miracle-baby/page.tsx` |
 
 Ignore the alternate exports (`index-print.html`, `index-standalone.html`, `*-standalone*.html`, `tweaks-panel.jsx`, `scraps/`, `screenshots/`, `uploads/`, `copy_extracted.txt`) — they are not part of the live site. (`screenshots/` is used only for the manual fidelity check.)
@@ -72,15 +72,18 @@ vitest.config.ts  vitest.setup.ts  netlify.toml  package.json
 - [ ] **Step 1: Scaffold into the current directory**
 
 Run:
+
 ```bash
 cd /Users/tonymack/dev/dr_marie_meechan
 npx create-next-app@latest . --typescript --eslint --app --no-src-dir --no-tailwind --turbopack --import-alias "@/*" --use-npm
 ```
+
 If prompted that the directory is not empty, accept (it only contains `.git/` and `docs/`, which do not conflict). Accept defaults for any remaining prompts.
 
 - [ ] **Step 2: Enable the React Compiler**
 
 Edit `next.config.ts` to:
+
 ```ts
 import type { NextConfig } from "next";
 
@@ -90,7 +93,9 @@ const nextConfig: NextConfig = {
 
 export default nextConfig;
 ```
+
 Install the compiler plugin if the build asks for it:
+
 ```bash
 npm install -D babel-plugin-react-compiler
 ```
@@ -102,9 +107,11 @@ Open `tsconfig.json` and verify `"strict": true` is present under `compilerOptio
 - [ ] **Step 4: Verify the app boots and builds**
 
 Run:
+
 ```bash
 npm run build
 ```
+
 Expected: build completes with no errors (a default Next starter page).
 
 - [ ] **Step 5: Commit**
@@ -119,6 +126,7 @@ git commit -m "chore: scaffold Next.js 16 app with TypeScript + React Compiler"
 ## Task 2: Add Prettier and finalize lint/type-check scripts
 
 **Files:**
+
 - Create: `.prettierrc`, `.prettierignore`
 - Modify: `package.json` (scripts)
 - Verify: `eslint.config.mjs` (created by scaffold)
@@ -126,10 +134,13 @@ git commit -m "chore: scaffold Next.js 16 app with TypeScript + React Compiler"
 - [ ] **Step 1: Add Prettier**
 
 Run:
+
 ```bash
 npm install -D prettier
 ```
+
 Create `.prettierrc`:
+
 ```json
 {
   "semi": true,
@@ -138,18 +149,22 @@ Create `.prettierrc`:
   "printWidth": 100
 }
 ```
+
 Create `.prettierignore`:
+
 ```
 .next
 node_modules
 public/assets
 package-lock.json
 ```
+
 (`public/assets` is ignored so the verbatim design CSS/JS is never reformatted.)
 
 - [ ] **Step 2: Add scripts**
 
 In `package.json`, set the `scripts` block to:
+
 ```json
 "scripts": {
   "dev": "next dev --turbopack",
@@ -166,9 +181,11 @@ In `package.json`, set the `scripts` block to:
 - [ ] **Step 3: Run the gates**
 
 Run:
+
 ```bash
 npm run typecheck && npm run lint && npm run format:check
 ```
+
 Expected: `typecheck` and `lint` pass. `format:check` may report files to format — if so, run `npm run format` once, then re-run `npm run format:check` until clean.
 
 - [ ] **Step 4: Commit**
@@ -183,11 +200,13 @@ git commit -m "chore: add Prettier and lint/typecheck/format scripts"
 ## Task 3: Set up Vitest + React Testing Library
 
 **Files:**
+
 - Create: `vitest.config.ts`, `vitest.setup.tsx`, `components/__tests__/smoke.test.tsx`
 
 - [ ] **Step 1: Install test deps**
 
 Run:
+
 ```bash
 npm install -D vitest @vitejs/plugin-react jsdom @testing-library/react @testing-library/jest-dom @testing-library/user-event
 ```
@@ -235,6 +254,7 @@ vi.mock("next/link", () => ({
 - [ ] **Step 4: Write a failing smoke test**
 
 Create `components/__tests__/smoke.test.tsx`:
+
 ```tsx
 import { render, screen } from "@testing-library/react";
 
@@ -265,12 +285,14 @@ git commit -m "test: set up Vitest + React Testing Library"
 ## Task 4: Add Husky + lint-staged pre-commit hook
 
 **Files:**
+
 - Create: `.husky/pre-commit`
 - Modify: `package.json` (`lint-staged` config, `prepare` script)
 
 - [ ] **Step 1: Install and init**
 
 Run:
+
 ```bash
 npm install -D husky lint-staged
 npx husky init
@@ -279,6 +301,7 @@ npx husky init
 - [ ] **Step 2: Configure lint-staged**
 
 Add to `package.json`:
+
 ```json
 "lint-staged": {
   "*.{ts,tsx}": ["eslint --fix", "prettier --write"],
@@ -289,6 +312,7 @@ Add to `package.json`:
 - [ ] **Step 3: Set the hook**
 
 Replace the contents of `.husky/pre-commit` with:
+
 ```sh
 npx lint-staged
 ```
@@ -296,9 +320,11 @@ npx lint-staged
 - [ ] **Step 4: Verify the hook runs**
 
 Run:
+
 ```bash
 git add -A && git commit -m "chore: add Husky + lint-staged pre-commit hook"
 ```
+
 Expected: lint-staged runs on commit and the commit succeeds.
 
 ---
@@ -306,6 +332,7 @@ Expected: lint-staged runs on commit and the commit succeeds.
 ## Task 5: GitHub Actions CI pipeline
 
 **Files:**
+
 - Create: `.github/workflows/ci.yml`
 
 - [ ] **Step 1: Create the workflow**
@@ -338,9 +365,11 @@ jobs:
 - [ ] **Step 2: Verify the steps locally first**
 
 Run:
+
 ```bash
 npm ci && npm run typecheck && npm run lint && npm run format:check && npm test && npm run build
 ```
+
 Expected: every command exits 0.
 
 - [ ] **Step 3: Commit and push**
@@ -350,6 +379,7 @@ git add -A
 git commit -m "ci: add GitHub Actions pipeline (typecheck, lint, format, test, build)"
 git push -u origin main
 ```
+
 Expected: the CI run on GitHub goes green. (Verify in the Actions tab.)
 
 ---
@@ -357,19 +387,23 @@ Expected: the CI run on GitHub goes green. (Verify in the Actions tab.)
 ## Task 6: Migrate design assets into `public/assets`
 
 **Files:**
+
 - Create: `public/assets/css/*`, `public/assets/fonts/*`, `public/assets/img/*`, video files
 
 - [ ] **Step 1: Copy assets verbatim**
 
 Run:
+
 ```bash
 cp -R "/Users/tonymack/Downloads/Dr marie Meechan Website V1/assets" /Users/tonymack/dev/dr_marie_meechan/public/assets
 ```
+
 This brings `css/` (tokens.css, site.css), `fonts/`, `img/`, and `js/` across. The `@font-face` rules in `tokens.css` use `url("../fonts/...")` relative to `css/`, so they resolve correctly when served from `/assets/css/`.
 
 - [ ] **Step 2: Remove the now-unused JS**
 
 The behaviour in `assets/js/site.js` is reimplemented as React components, so delete it to avoid confusion:
+
 ```bash
 rm /Users/tonymack/dev/dr_marie_meechan/public/assets/js/site.js
 ```
@@ -377,9 +411,11 @@ rm /Users/tonymack/dev/dr_marie_meechan/public/assets/js/site.js
 - [ ] **Step 3: Verify fonts and a key image exist**
 
 Run:
+
 ```bash
 ls public/assets/fonts/Lato-Regular.ttf public/assets/img/marie-hero.jpg public/assets/img/logo-stacked-bold.png
 ```
+
 Expected: all three paths listed (no "No such file").
 
 - [ ] **Step 4: Commit**
@@ -394,6 +430,7 @@ git commit -m "chore: add design assets (css, fonts, images) to public/assets"
 ## Task 7: Shared NAV data and root layout
 
 **Files:**
+
 - Create: `lib/nav.ts`
 - Modify: `app/layout.tsx`
 - Delete: `app/page.module.css`, default global styles import if they conflict (see step 3)
@@ -423,8 +460,7 @@ import { SiteFooter } from "@/components/SiteFooter";
 import { RevealObserver } from "@/components/RevealObserver";
 
 export const metadata: Metadata = {
-  title:
-    "Dr Marie Meechan, PhD · The Fertility Psychotherapist — Edinburgh & worldwide online",
+  title: "Dr Marie Meechan, PhD · The Fertility Psychotherapist — Edinburgh & worldwide online",
   description:
     "Specialist online fertility counselling and coaching with Dr Marie Meechan, PhD. Edinburgh-based, supporting you worldwide through every season of your fertility journey.",
 };
@@ -457,9 +493,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
 - [ ] **Step 3: Remove starter styles that would override the design**
 
 Delete the scaffold's default styling so only the design CSS applies:
+
 ```bash
 rm -f app/page.module.css app/globals.css
 ```
+
 If `app/layout.tsx` (from the scaffold) imported `./globals.css` or used `next/font`, ensure those imports are gone (the replacement above has none).
 
 - [ ] **Step 4: Commit**
@@ -468,6 +506,7 @@ If `app/layout.tsx` (from the scaffold) imported `./globals.css` or used `next/f
 git add -A
 git commit -m "feat: add shared NAV data and root layout with design stylesheets"
 ```
+
 (Note: the app will not build cleanly until the components in Tasks 8–10 exist; that is expected. Do the build verification at the end of Task 10.)
 
 ---
@@ -475,11 +514,13 @@ git commit -m "feat: add shared NAV data and root layout with design stylesheets
 ## Task 8: SiteHeader component
 
 **Files:**
+
 - Create: `components/SiteHeader.tsx`, `components/__tests__/SiteHeader.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
 
 Create `components/__tests__/SiteHeader.test.tsx`:
+
 ```tsx
 import { render, screen } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
@@ -633,11 +674,13 @@ git commit -m "feat: add SiteHeader with active link and mobile menu"
 ## Task 9: SiteFooter component
 
 **Files:**
+
 - Create: `components/SiteFooter.tsx`, `components/__tests__/SiteFooter.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
 
 Create `components/__tests__/SiteFooter.test.tsx`:
+
 ```tsx
 import { render, screen } from "@testing-library/react";
 import { SiteFooter } from "@/components/SiteFooter";
@@ -688,7 +731,8 @@ export function SiteFooter() {
         <div className="footer-col">
           <span className="eyebrow">Find Marie</span>
           <a href="mailto:hello@drmariemeechan.com">
-            <i className="ph-light ph-envelope-simple" aria-hidden="true" /> hello@drmariemeechan.com
+            <i className="ph-light ph-envelope-simple" aria-hidden="true" />{" "}
+            hello@drmariemeechan.com
           </a>
           <a href="https://intherapywithmarie.com">
             <i className="ph-light ph-globe-simple" aria-hidden="true" /> intherapywithmarie.com
@@ -698,7 +742,13 @@ export function SiteFooter() {
           </Link>
           <span
             className="footer-col"
-            style={{ gap: 4, marginTop: 8, color: "var(--color-ink)", fontSize: ".9rem", opacity: 0.85 }}
+            style={{
+              gap: 4,
+              marginTop: 8,
+              color: "var(--color-ink)",
+              fontSize: ".9rem",
+              opacity: 0.85,
+            }}
           >
             In person in Edinburgh · Online worldwide
           </span>
@@ -733,11 +783,13 @@ git commit -m "feat: add SiteFooter component"
 ## Task 10: RevealObserver component
 
 **Files:**
+
 - Create: `components/RevealObserver.tsx`, `components/__tests__/RevealObserver.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
 
 Create `components/__tests__/RevealObserver.test.tsx`:
+
 ```tsx
 import { render } from "@testing-library/react";
 import { vi } from "vitest";
@@ -762,6 +814,7 @@ Expected: FAIL (cannot find module).
 - [ ] **Step 3: Implement `components/RevealObserver.tsx`**
 
 Port `initReveal()` from `site.js` (lines 184–194), re-running on pathname change so reveals work after client navigation.
+
 ```tsx
 "use client";
 
@@ -817,6 +870,7 @@ git commit -m "feat: add RevealObserver for scroll-in animations"
 ## Task 11: RotatingTagline component
 
 **Files:**
+
 - Create: `components/RotatingTagline.tsx`, `components/__tests__/RotatingTagline.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
@@ -842,6 +896,7 @@ Expected: FAIL.
 - [ ] **Step 3: Implement `components/RotatingTagline.tsx`**
 
 Port `initTagline()` (lines 139–153), honouring `prefers-reduced-motion`.
+
 ```tsx
 "use client";
 
@@ -894,6 +949,7 @@ git commit -m "feat: add RotatingTagline hero component"
 ## Task 12: TestimonialRotator component
 
 **Files:**
+
 - Create: `components/TestimonialRotator.tsx`, `components/__tests__/TestimonialRotator.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
@@ -926,6 +982,7 @@ Expected: FAIL.
 - [ ] **Step 3: Implement `components/TestimonialRotator.tsx`**
 
 Port `initRotators()` (lines 155–182). The `big` flag reproduces the first home slide's inline `font-size: 42px`.
+
 ```tsx
 "use client";
 
@@ -997,6 +1054,7 @@ git commit -m "feat: add TestimonialRotator component"
 ## Task 13: Faq accordion component
 
 **Files:**
+
 - Create: `components/Faq.tsx`, `components/__tests__/Faq.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
@@ -1032,6 +1090,7 @@ Expected: FAIL.
 - [ ] **Step 3: Implement `components/Faq.tsx`**
 
 Port `initFaq()` (lines 107–137): single-open accordion, sibling close, inline `maxHeight` set to the panel's `scrollHeight` when open (removed when closed) to drive the CSS transition.
+
 ```tsx
 "use client";
 
@@ -1094,6 +1153,7 @@ git commit -m "feat: add Faq accordion component"
 ## Task 14: FormWithSuccess component
 
 **Files:**
+
 - Create: `components/FormWithSuccess.tsx`, `components/__tests__/FormWithSuccess.test.tsx`
 
 > **Phase 1 scope:** this reproduces the existing front-end behaviour only — on submit it hides the form and reveals the success panel (matching `initForms()`, lines 196–209). Actual email sending is Phase 3.
@@ -1151,10 +1211,20 @@ export function FormWithSuccess({
 
   return (
     <div style={{ position: "relative" }}>
-      <form className={formClassName} onSubmit={onSubmit} style={done ? { display: "none" } : undefined}>
+      <form
+        className={formClassName}
+        onSubmit={onSubmit}
+        style={done ? { display: "none" } : undefined}
+      >
         {children}
       </form>
-      <div className="form-success" ref={successRef} hidden={!done} tabIndex={-1} style={successStyle}>
+      <div
+        className="form-success"
+        ref={successRef}
+        hidden={!done}
+        tabIndex={-1}
+        style={successStyle}
+      >
         {success}
       </div>
     </div>
@@ -1179,6 +1249,7 @@ git commit -m "feat: add FormWithSuccess wrapper (front-end success state)"
 ## Task 15: LetterFilters component
 
 **Files:**
+
 - Create: `components/LetterFilters.tsx`, `components/__tests__/LetterFilters.test.tsx`
 
 - [ ] **Step 1: Write the failing test**
@@ -1189,8 +1260,26 @@ import userEvent from "@testing-library/user-event";
 import { LetterFilters, type LetterPost } from "@/components/LetterFilters";
 
 const POSTS: LetterPost[] = [
-  { slug: "a", topic: "loss", topicLabel: "Loss & grief", img: "/x.png", alt: "", title: "Loss post", excerpt: "", meta: "" },
-  { slug: "b", topic: "beyond", topicLabel: "Beyond fertility", img: "/y.png", alt: "", title: "Beyond post", excerpt: "", meta: "" },
+  {
+    slug: "a",
+    topic: "loss",
+    topicLabel: "Loss & grief",
+    img: "/x.png",
+    alt: "",
+    title: "Loss post",
+    excerpt: "",
+    meta: "",
+  },
+  {
+    slug: "b",
+    topic: "beyond",
+    topicLabel: "Beyond fertility",
+    img: "/y.png",
+    alt: "",
+    title: "Beyond post",
+    excerpt: "",
+    meta: "",
+  },
 ];
 
 test("filters posts by topic", async () => {
@@ -1210,6 +1299,7 @@ Expected: FAIL.
 - [ ] **Step 3: Implement `components/LetterFilters.tsx`**
 
 Port `initFilters()` (lines 211–227). Hidden posts use `display:none` (matching the original) so layout/animation behaviour is identical.
+
 ```tsx
 "use client";
 
@@ -1318,6 +1408,7 @@ Each page task transcribes the `<main>` content of the source HTML file into the
 ## Task 16: Home page (`/`) — worked example
 
 **Files:**
+
 - Create: `app/page.tsx`
 - Source: `index.html`
 
@@ -1366,8 +1457,8 @@ const FAQ = [
         Fertility counselling is therapy with a specialism. It holds the emotional weight of your
         fertility journey — the grief, the anxiety, the identity questions — alongside the medical
         and practical decisions you may be facing. I will also coach you through specific parts of
-        the journey when that is what you need. Together, we work through whatever is in your way and
-        build a path forward that feels like yours.
+        the journey when that is what you need. Together, we work through whatever is in your way
+        and build a path forward that feels like yours.
       </p>
     ),
   },
@@ -1376,10 +1467,10 @@ const FAQ = [
 ```
 
 Then render the full `<main>` body (the JSX below the constants) by transcribing `index.html` lines 18–209, substituting `<RotatingTagline lines={TAGLINE} />` for the `<h1 data-tagline>`, `<TestimonialRotator items={TESTIMONIALS} />` for the `.rotator`, `<Faq items={FAQ} />` for the `.faq`, and wrapping the newsletter form (lines 155–173) in `<FormWithSuccess formClassName="stack stack-4" successStyle={{ textAlign: "left", alignItems: "flex-start", padding: "var(--space-4) 0" }} success={<>...</>}>`. Add the page metadata:
+
 ```tsx
 export const metadata = {
-  title:
-    "Dr Marie Meechan, PhD · The Fertility Psychotherapist — Edinburgh & worldwide online",
+  title: "Dr Marie Meechan, PhD · The Fertility Psychotherapist — Edinburgh & worldwide online",
   description:
     "Specialist online fertility counselling and coaching with Dr Marie Meechan, PhD. Edinburgh-based, supporting you worldwide through every season of your fertility journey.",
 };
@@ -1416,12 +1507,14 @@ For each task below: implement `page.tsx` from the listed source file following 
 ## Task 23: Letters index page (`/letters`)
 
 **Files:**
+
 - Create: `app/letters/page.tsx`
 - Source: `letters.html`
 
 - [ ] **Step 1: Implement `app/letters/page.tsx`**
 
 Follow the procedure. The hero contains the subscribe form (wrap in `<FormWithSuccess formClassName="stack stack-4 mt-4" successStyle={{ textAlign: "left", alignItems: "flex-start", padding: "var(--space-4) 0" }} success={<><i className="ph-light ph-envelope-open" aria-hidden="true" /><p style={{ margin: 0 }}>Thank you. You will receive a letter the next time I write one.</p></>}>`). Replace the `[data-filter-group]` chips + `.post-grid` (letters.html lines 56–84) with `<LetterFilters posts={POSTS} />`, where:
+
 ```tsx
 const POSTS = [
   {
@@ -1459,6 +1552,7 @@ const POSTS = [
   },
 ];
 ```
+
 Add metadata from the source head. Keep the "More letters are on their way" notice and the closing CTA verbatim.
 
 - [ ] **Step 2: Build and verify**
@@ -1477,6 +1571,7 @@ git commit -m "feat: port letters index with topic filters"
 ## Task 24: Letter post pages (3 static routes)
 
 **Files:**
+
 - Create: `app/letters/disenfranchised-grief/page.tsx` (source `letter-disenfranchised-grief.html`)
 - Create: `app/letters/petri-dish-loss/page.tsx` (source `letter-petri-dish-loss.html`)
 - Create: `app/letters/after-the-miracle-baby/page.tsx` (source `letter-after-the-miracle-baby.html`)
@@ -1503,18 +1598,23 @@ git commit -m "feat: port three letter posts as static pages"
 ## Task 25: 404 page
 
 **Files:**
+
 - Create: `app/not-found.tsx`
 
 - [ ] **Step 1: Implement a styled 404**
 
 Use the site's existing classes so it matches the design. Keep it simple and on-brand:
+
 ```tsx
 import Link from "next/link";
 
 export default function NotFound() {
   return (
     <section className="section--hero section--parchment">
-      <div className="container container--medium center stack stack-6" style={{ alignItems: "center" }}>
+      <div
+        className="container container--medium center stack stack-6"
+        style={{ alignItems: "center" }}
+      >
         <span className="eyebrow">Page not found</span>
         <h1>This page seems to have wandered off</h1>
         <p className="lead" style={{ maxWidth: "34rem" }}>
@@ -1550,6 +1650,7 @@ git commit -m "feat: add styled 404 page"
 ## Task 26: Netlify configuration and deploy
 
 **Files:**
+
 - Create: `netlify.toml`
 
 - [ ] **Step 1: Add `netlify.toml`**
@@ -1594,9 +1695,11 @@ git push
 - [ ] **Step 1: Run the full gate locally**
 
 Run:
+
 ```bash
 npm run typecheck && npm run lint && npm run format:check && npm test && npm run build
 ```
+
 Expected: all pass.
 
 - [ ] **Step 2: Confirm CI is green**
@@ -1623,6 +1726,7 @@ git push --tags
 ---
 
 ## Known non-functional items (flag to client, out of Phase 1 scope)
+
 - **Newsletter / contact forms** show the success state but do **not** send email yet (Phase 3).
 - **"Book a session"** buttons link to `/contact`; they do not yet email or open a calendar (Phase 3).
 - **Privacy & ethics** link and the newsletter `privacy.html` link point to `#` — there is no privacy page in the design yet. Confirm whether one is needed.
