@@ -4,11 +4,7 @@ import { TestimonialRotator, type Testimonial } from "@/components/TestimonialRo
 import { Faq, type FaqEntry } from "@/components/Faq";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 
-export const metadata = {
-  title: "Dr Marie Meechan, PhD · The Fertility Psychotherapist — Edinburgh & worldwide online",
-  description:
-    "Specialist online fertility counselling and coaching with Dr Marie Meechan, PhD. Edinburgh-based, supporting you worldwide through every season of your fertility journey.",
-};
+// Metadata for "/" is the site default set in app/layout.tsx; no page-level override needed.
 
 const TAGLINE = [
   "A space to know that you are not alone.",
