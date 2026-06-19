@@ -1,11 +1,7 @@
 import type { LetterPost } from "@/components/LetterFilters";
 import { urlForImage } from "./image";
-import type { LetterListItem, LetterTopic } from "./queries";
-
-const TOPIC_LABELS: Record<LetterTopic, string> = {
-  loss: "Loss & grief",
-  beyond: "Beyond fertility",
-};
+import type { LetterListItem } from "./queries";
+import { TOPIC_LABELS } from "./topics";
 
 export function letterToPost(letter: LetterListItem): LetterPost {
   return {

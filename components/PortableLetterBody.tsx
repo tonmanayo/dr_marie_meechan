@@ -20,7 +20,7 @@ const components: PortableTextComponents = {
         <blockquote>{value.text}</blockquote>
       </div>
     ),
-    image: ({ value }: { value: { alt?: string } }) => (
+    image: ({ value }: { value: { asset?: { _ref: string }; alt?: string } }) => (
       <figure className="media media--landscape" style={{ margin: "var(--space-8) auto" }}>
         <img src={urlForImage(value)} alt={value.alt ?? ""} />
       </figure>
