@@ -150,6 +150,8 @@ async function run() {
       seoDescription,
     };
 
+    // WARNING: createOrReplace overwrites the document at letter-<slug>. Re-running is safe
+    // for idempotency, but will CLOBBER any edits made in the Studio after the first migration.
     await client.createOrReplace(doc);
     console.log(`migrated: ${s.slug} (${(doc.body as unknown[]).length} blocks)`);
   }

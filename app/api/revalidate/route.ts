@@ -16,6 +16,7 @@ export async function POST(req: NextRequest) {
     revalidateTag("letter", "max");
     return NextResponse.json({ revalidated: true, type: body?._type });
   } catch (err) {
-    return new NextResponse((err as Error).message, { status: 500 });
+    console.error("[revalidate] error:", err);
+    return new NextResponse("Internal error", { status: 500 });
   }
 }
