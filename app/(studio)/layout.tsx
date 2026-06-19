@@ -1,5 +1,5 @@
 export const metadata = {
-  title: "Letters — Studio",
+  title: "Studio · Dr Marie Meechan",
   robots: { index: false },
 };
 
