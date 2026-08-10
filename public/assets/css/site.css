@@ -272,6 +272,7 @@ a.card:hover, .card--link:hover { transform: translateY(-4px); box-shadow: var(-
 .field .hint { font-size: 0.8125rem; color: var(--color-rose); }
 .form-note { font-size: 0.875rem; color: var(--color-ink); opacity: 0.8; }
 .form-success { text-align: center; padding: var(--space-8) var(--space-4); display: flex; flex-direction: column; align-items: center; gap: var(--space-3); }
+.form-success[hidden] { display: none; }
 .form-success i { font-size: 44px; color: var(--color-accent); }
 
 .subscribe { display: flex; gap: var(--space-3); flex-wrap: wrap; }
