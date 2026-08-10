@@ -86,7 +86,7 @@ export default function ContactPage() {
         </div>
       </section>
 
-      {/* Three options */}
+      {/* Two options */}
       <section className="section--blush section--tight">
         <div className="container">
           <div className="option-grid reveal">
@@ -109,30 +109,14 @@ export default function ContactPage() {
             </a>
             <div className="card" style={{ background: "var(--color-bg)" }}>
               <div className="icon-badge">
-                <i className="ph-light ph-calendar-check" aria-hidden="true" />
-              </div>
-              <span className="eyebrow">Option two</span>
-              <h3 className="mt-4">Book directly</h3>
-              <p className="mt-4">
-                If you already know you would like to begin, you can book your first session
-                straight from my calendar.
-              </p>
-              <a className="arrow-link mt-6" href="#message">
-                Open the calendar <i className="ph-light ph-arrow-up-right" aria-hidden="true" />
-              </a>
-            </div>
-            <div className="card" style={{ background: "var(--color-bg)" }}>
-              <div className="icon-badge">
                 <i className="ph-light ph-phone" aria-hidden="true" />
               </div>
-              <span className="eyebrow">Option three</span>
+              <span className="eyebrow">Option two</span>
               <h3 className="mt-4">Call</h3>
-              <p className="mt-4">
-                Available during weekday hours. Phone number to be confirmed at launch.
-              </p>
-              <span className="arrow-link mt-6" style={{ color: "var(--color-rose)" }}>
-                Coming soon
-              </span>
+              <p className="mt-4">Available during weekday hours. Tap to call me directly.</p>
+              <a className="arrow-link mt-6" href="tel:+447852813610">
+                +44 7852 813610 <i className="ph-light ph-phone-call" aria-hidden="true" />
+              </a>
             </div>
           </div>
         </div>

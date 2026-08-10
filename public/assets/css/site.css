@@ -362,7 +362,7 @@ a.card:hover, .card--link:hover { transform: translateY(-4px); box-shadow: var(-
 .tag { display: inline-flex; align-items: center; gap: 8px; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--color-rose); background: var(--color-bg); border: 1px solid rgba(201,145,138,0.4); padding: 7px 14px; border-radius: var(--radius-pill); }
 
 /* ---- contact options ------------------------------------ */
-.option-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-6); }
+.option-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-6); }
 @media (max-width: 64rem) { .option-grid { grid-template-columns: 1fr; } }
 
 /* ---- step list (what happens next) ---------------------- */
