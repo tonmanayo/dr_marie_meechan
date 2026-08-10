@@ -19,7 +19,7 @@ test("hides the form and shows success on submit", async () => {
 });
 
 test("with action: POSTs email+name and shows success on ok", async () => {
-  const fetchMock = vi.fn((_url: string, _init?: RequestInit) =>
+  const fetchMock = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(() =>
     Promise.resolve({ ok: true, status: 200 } as Response),
   );
   vi.stubGlobal("fetch", fetchMock);

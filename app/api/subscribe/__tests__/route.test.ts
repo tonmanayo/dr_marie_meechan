@@ -44,6 +44,17 @@ test("posts to MailerLite with bearer token, name field, and group; returns ok",
   expect(sent.email).toBe("jane@example.com");
   expect(sent.fields).toEqual({ name: "Jane" });
   expect(sent.groups).toEqual(["group-123"]);
+  expect(sent.status).toBeUndefined();
+});
+
+test("omits the fields object when no name is supplied", async () => {
+  fetchMock.mockResolvedValue({ ok: true, status: 201 });
+  const res = await POST(req({ email: "jane@example.com" }));
+  expect(res.status).toBe(200);
+  const sent = JSON.parse(fetchMock.mock.calls[0][1].body as string);
+  expect(sent.email).toBe("jane@example.com");
+  expect(sent.fields).toBeUndefined();
+  expect(sent.groups).toEqual(["group-123"]);
 });
 
 test("returns a generic error when MailerLite responds non-2xx", async () => {
