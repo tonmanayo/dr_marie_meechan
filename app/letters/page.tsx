@@ -71,6 +71,7 @@ export default function LettersPage() {
             >
               <span className="eyebrow">Receive a letter when I write one</span>
               <FormWithSuccess
+                action="/api/subscribe"
                 formClassName="stack stack-4 mt-4"
                 successStyle={{
                   textAlign: "left",
