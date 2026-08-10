@@ -57,3 +57,47 @@ test("with action: shows a graceful error when the request fails", async () => {
   expect(await screen.findByText(/something went wrong/i)).toBeInTheDocument();
   expect(screen.queryByText("Thank you.")).not.toBeVisible();
 });
+
+test("with netlifyForm: POSTs all fields url-encoded to /__forms.html and shows success", async () => {
+  const fetchMock = vi.fn<(url: string, init?: RequestInit) => Promise<Response>>(() =>
+    Promise.resolve({ ok: true, status: 200 } as Response),
+  );
+  vi.stubGlobal("fetch", fetchMock);
+  const user = userEvent.setup();
+  render(
+    <FormWithSuccess netlifyForm="contact" success={<p>Thank you.</p>}>
+      <input name="name" aria-label="name" defaultValue="Jane" />
+      <input name="email" aria-label="email" defaultValue="jane@example.com" />
+      <input name="format" aria-label="format" defaultValue="Online — worldwide" />
+      <button type="submit">Send</button>
+    </FormWithSuccess>,
+  );
+  await user.click(screen.getByRole("button", { name: "Send" }));
+  expect(await screen.findByText("Thank you.")).toBeVisible();
+
+  const [url, init] = fetchMock.mock.calls[0];
+  expect(url).toBe("/__forms.html");
+  expect(init?.method).toBe("POST");
+  const body = new URLSearchParams(String(init?.body));
+  expect(body.get("form-name")).toBe("contact");
+  expect(body.get("name")).toBe("Jane");
+  expect(body.get("email")).toBe("jane@example.com");
+  expect(body.get("format")).toBe("Online — worldwide");
+});
+
+test("with netlifyForm: shows a graceful error when the request fails", async () => {
+  vi.stubGlobal(
+    "fetch",
+    vi.fn(() => Promise.resolve({ ok: false, status: 500 } as Response)),
+  );
+  const user = userEvent.setup();
+  render(
+    <FormWithSuccess netlifyForm="contact" success={<p>Thank you.</p>}>
+      <input name="email" aria-label="email" defaultValue="jane@example.com" />
+      <button type="submit">Send</button>
+    </FormWithSuccess>,
+  );
+  await user.click(screen.getByRole("button", { name: "Send" }));
+  expect(await screen.findByText(/something went wrong/i)).toBeInTheDocument();
+  expect(screen.queryByText("Thank you.")).not.toBeVisible();
+});
