@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Netlify form detection</title>
+  </head>
+  <body>
+    <!--
+      Static form so Netlify's build-time scanner detects the "contact" form.
+      The real form is a React client component (app/contact/page.tsx via
+      components/FormWithSuccess.tsx), which Netlify's scanner cannot see, so it
+      POSTs its data here. Field names MUST match the form's inputs.
+    -->
+    <form name="contact" method="POST" data-netlify="true" hidden>
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="text" name="format" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

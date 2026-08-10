@@ -8,12 +8,14 @@ export function FormWithSuccess({
   success,
   successStyle,
   action,
+  netlifyForm,
 }: {
   formClassName?: string;
   children: ReactNode;
   success: ReactNode;
   successStyle?: CSSProperties;
   action?: string;
+  netlifyForm?: string;
 }) {
   const [done, setDone] = useState(false);
   const [submitting, setSubmitting] = useState(false);
@@ -28,6 +30,33 @@ export function FormWithSuccess({
   async function onSubmit(e: FormEvent<HTMLFormElement>) {
     e.preventDefault();
     if (submitting) return;
+
+    // Netlify Forms: encode every field (plus form-name) and POST to the static
+    // detection page, the same approach used across the sites. Netlify's build
+    // scanner cannot see this React form, so /__forms.html carries the schema.
+    if (netlifyForm) {
+      const params = new URLSearchParams({ "form-name": netlifyForm });
+      for (const [key, value] of new FormData(e.currentTarget).entries()) {
+        params.set(key, String(value));
+      }
+      setError(false);
+      setSubmitting(true);
+      try {
+        const res = await fetch("/__forms.html", {
+          method: "POST",
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: params.toString(),
+        });
+        if (!res.ok) throw new Error(String(res.status));
+        showSuccess();
+      } catch {
+        setError(true);
+      } finally {
+        setSubmitting(false);
+      }
+      return;
+    }
+
     if (!action) {
       showSuccess();
       return;

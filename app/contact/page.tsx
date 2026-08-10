@@ -132,6 +132,7 @@ export default function ContactPage() {
             </h2>
             <FormWithSuccess
               formClassName="form"
+              netlifyForm="contact"
               success={
                 <>
                   <i className="ph-light ph-check-circle" aria-hidden="true" />
