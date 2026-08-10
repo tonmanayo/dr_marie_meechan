@@ -13,8 +13,8 @@ const FAQ: FaqEntry[] = [
     q: "Have you personally experienced fertility impairment?",
     a: (
       <p>
-        Yes, I have. I lived with unexplained infertility for twelve years. That&rsquo;s not just my
-        credential &mdash; it&rsquo;s my compass. It&rsquo;s why I understand the weight of your
+        Yes, I have. I lived with unexplained (in)fertility for twelve years. That&rsquo;s not just
+        my credential &mdash; it&rsquo;s my compass. It&rsquo;s why I understand the weight of your
         story in a way only lived experience can teach. When you work with me, you&rsquo;re not just
         getting expertise. You&rsquo;re getting someone who knows what it feels like to be where you
         are right now. That understanding shapes everything I do.
@@ -117,8 +117,8 @@ export default function AboutPage() {
           </div>
           <div className="prose stack stack-4 reveal" style={{ maxWidth: "42rem" }}>
             <p>
-              Twelve years of unexplained infertility. A long stretch of liminal space, of confused
-              loss, of disenfranchised grief.
+              Twelve years of unexplained (in)fertility. A long stretch of liminal space, of
+              confused loss, of disenfranchised grief.
             </p>
             <p>
               It drove me to learn everything I could, so that no one else would have to wait as

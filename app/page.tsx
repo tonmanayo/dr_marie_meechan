@@ -159,9 +159,9 @@ export default function HomePage() {
             </div>
             <div className="prose stack stack-4">
               <p>
-                I spent twelve years living with unexplained infertility. I know the silence. I know
-                the shame. I know the strange, invisible grief of a future you can feel slipping but
-                cannot name.
+                I spent twelve years living with unexplained (in)fertility. I know the silence. I
+                know the shame. I know the strange, invisible grief of a future you can feel
+                slipping but cannot name.
               </p>
               <p>
                 I also have a PhD in Counselling Studies on Fertility Impairment from the University
