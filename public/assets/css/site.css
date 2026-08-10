@@ -173,6 +173,8 @@ a.card:hover, .card--link:hover { transform: translateY(-4px); box-shadow: var(-
   .split, .split--text-left { grid-template-columns: 1fr; gap: var(--space-12); }
   .split .media { order: -1; }
   .split .media--portrait { aspect-ratio: 4 / 3; }
+  /* Bias portrait crops toward the top so the wider mobile aspect ratio does not clip the head. */
+  .split .media--portrait img { object-position: 50% 20%; }
 }
 
 /* ---- pull quote / testimonial --------------------------- */
