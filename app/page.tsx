@@ -319,6 +319,7 @@ export default function HomePage() {
             style={{ width: "100%", maxWidth: "32rem", textAlign: "left" }}
           >
             <FormWithSuccess
+              action="/api/subscribe"
               formClassName="stack stack-4"
               successStyle={{
                 textAlign: "left",
