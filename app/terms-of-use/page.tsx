@@ -67,7 +67,7 @@ export default function TermsOfUsePage() {
           <h2>3. How to Contact Us</h2>
           <p>
             To contact Us, please email Us at{" "}
-            <a href="mailto:support@intherapywithmarie.com">support@intherapywithmarie.com</a>.
+            <a href="mailto:hello@drmariemeechan.co.uk">hello@drmariemeechan.co.uk</a>.
           </p>
 
           <h2>4. Access to Our Site</h2>

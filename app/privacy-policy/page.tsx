@@ -426,8 +426,8 @@ export default function PrivacyPolicyPage() {
           <p>
             If you have any questions about Our Site or this Privacy &amp; Cookies Policy, please
             contact Us by email at{" "}
-            <a href="mailto:support@intherapywithmarie.com">support@intherapywithmarie.com</a> or by
-            post 37 Mayfield Gardens, Edinburgh, EH9 2BX. Please ensure that your query is clear,
+            <a href="mailto:hello@drmariemeechan.co.uk">hello@drmariemeechan.co.uk</a> or by post 37
+            Mayfield Gardens, Edinburgh, EH9 2BX. Please ensure that your query is clear,
             particularly if it is a request for information about the data We hold about you (as
             under section 11, above).
           </p>
