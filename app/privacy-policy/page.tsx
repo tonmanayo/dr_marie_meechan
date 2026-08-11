@@ -394,89 +394,14 @@ export default function PrivacyPolicyPage() {
             great care to ensure that your privacy is not at risk by allowing them.
           </p>
           <p>
-            c. The following first, third party and analytics Cookies may be placed on your computer
-            or device:
+            c. This website is hosted on Netlify and built with Next.js. It does not use analytics,
+            advertising, or tracking cookies, and it does not embed third-party analytics or
+            advertising services. Our newsletter sign-up and contact form are processed securely on
+            the server and do not place tracking cookies in your browser. The only cookies that may
+            be set are those strictly necessary for the secure operation and delivery of Our Site by
+            Our hosting platform; these are not used to identify you or to track your activity
+            across other websites.
           </p>
-          <div style={{ overflowX: "auto" }}>
-            <table>
-              <thead>
-                <tr>
-                  <th>Name of Cookie</th>
-                  <th>Purpose</th>
-                  <th>Type</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>dps_site_id</td>
-                  <td>
-                    This is a session cookie used for optimizing the speed and performance of the
-                    website.
-                  </td>
-                  <td>Performance</td>
-                </tr>
-                <tr>
-                  <td>_tccl_visitor</td>
-                  <td>
-                    Godaddy sets this cookie to collect aggregated, anonymized data to improve the
-                    site’s performance.
-                  </td>
-                  <td>Analytics</td>
-                </tr>
-                <tr>
-                  <td>_tccl_visit</td>
-                  <td>
-                    Godaddy sets this cookie to collect aggregated, anonymized data to improve the
-                    site’s performance.
-                  </td>
-                  <td>Analytics</td>
-                </tr>
-                <tr>
-                  <td>_scc_session</td>
-                  <td>
-                    Used to maintain an anonymous user session and support the correct operation of
-                    the website during a visit.
-                  </td>
-                  <td>Necessary</td>
-                </tr>
-                <tr>
-                  <td>azk</td>
-                  <td>Used by an advertising service to deliver relevant advertising.</td>
-                  <td>Targeting</td>
-                </tr>
-                <tr>
-                  <td>azk-ss</td>
-                  <td>
-                    Used by an advertising service to recognise users and help deliver relevant
-                    advertising and maintain advertising data across visits. It is commonly
-                    associated with Azerion/Adzerk advertising technology.
-                  </td>
-                  <td>Targetting</td>
-                </tr>
-                <tr>
-                  <td>rc::a</td>
-                  <td>
-                    This cookie is set by the Google recaptcha service to identify bots to protect
-                    the website against malicious spam attacks.
-                  </td>
-                  <td>Necessary</td>
-                </tr>
-                <tr>
-                  <td>/markup/ad</td>
-                  <td></td>
-                  <td></td>
-                </tr>
-                <tr>
-                  <td>rc::c</td>
-                  <td>
-                    This cookie is set by the Google recaptcha service to identify bots to protect
-                    the website against malicious spam attacks.
-                  </td>
-                  <td>Necessary</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
           <p>
             d. In addition to the controls that We provide, you can choose to enable or disable
             Cookies in your internet browser. Most internet browsers also enable you to choose
