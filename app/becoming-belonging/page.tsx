@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -78,10 +79,11 @@ export default function BecomingBelongingPage() {
       <section className="section--parchment" id="mother" style={{ scrollMarginTop: "90px" }}>
         <div className="container split">
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/rest-golden.png"
               alt="A person lying down with eyes closed, dappled golden light across their face."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
           <div className="stack stack-6 reveal">
@@ -221,10 +223,11 @@ export default function BecomingBelongingPage() {
             </div>
           </div>
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/couple-beach.png"
               alt="A couple standing together on a beach at sunset, looking out toward the horizon."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
         </div>

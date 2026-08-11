@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 
 const LOGO = "/assets/img/logo-stacked-bold.png";
@@ -7,7 +8,12 @@ export function SiteFooter() {
     <footer className="site-footer">
       <div className="container site-footer__grid">
         <div className="site-footer__brand">
-          <img src={LOGO} alt="Dr Marie Meechan, The Fertility Psychotherapist" />
+          <Image
+            src={LOGO}
+            alt="Dr Marie Meechan, The Fertility Psychotherapist"
+            width={1043}
+            height={831}
+          />
           <p>Specialist psychotherapy for your whole self — not just your fertility.</p>
         </div>
         <div className="footer-col">

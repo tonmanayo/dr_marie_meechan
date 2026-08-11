@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Faq, type FaqEntry } from "@/components/Faq";
 
@@ -241,10 +242,11 @@ export default function AboutPage() {
           </div>
           <div className="stack stack-6 reveal">
             <figure className="media media--portrait" style={{ margin: 0 }}>
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
+              <Image
                 src="/assets/img/marie-books-coffee.jpg"
                 alt="Dr Marie Meechan reading at a table, a cappuccino resting on a stack of her fertility and grief research books."
+                fill
+                sizes="(max-width: 64rem) 100vw, 50vw"
               />
             </figure>
           </div>

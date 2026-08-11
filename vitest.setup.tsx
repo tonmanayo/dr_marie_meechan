@@ -7,6 +7,19 @@ vi.mock("next/navigation", () => ({
   usePathname: () => "/",
 }));
 
+// next/image → plain <img> in tests (strip next-only props, resolve static imports).
+const NEXT_IMAGE_ONLY_PROPS = ["fill", "priority", "sizes", "quality", "loader", "placeholder"];
+vi.mock("next/image", () => ({
+  default: ({ src, alt, ...rest }: any) => {
+    const resolved = typeof src === "object" && src !== null ? src.src : src;
+    const domProps = Object.fromEntries(
+      Object.entries(rest).filter(([key]) => !NEXT_IMAGE_ONLY_PROPS.includes(key)),
+    );
+    // eslint-disable-next-line @next/next/no-img-element
+    return <img src={resolved} alt={alt ?? ""} {...domProps} />;
+  },
+}));
+
 // next/link → plain anchor in tests.
 vi.mock("next/link", () => ({
   default: ({ children, ...props }: any) => {

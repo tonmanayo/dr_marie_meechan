@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { articleLd } from "@/components/schema";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/letters/after-the-miracle-baby" },
@@ -11,6 +13,19 @@ export const metadata: Metadata = {
 export default function AfterTheMiracleBabyPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleLd({
+              slug: "after-the-miracle-baby",
+              headline: "After the miracle baby: nobody told me motherhood would feel like this",
+              description: metadata.description ?? "",
+              image: "/assets/img/heart-sunset-wide.png",
+            }),
+          ),
+        }}
+      />
       {/* Article hero */}
       <section className="section--hero section--blush">
         <div
@@ -37,10 +52,11 @@ export default function AfterTheMiracleBabyPage() {
             className="media media--landscape reveal"
             style={{ margin: "0 auto var(--space-16)" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/heart-sunset-wide.png"
               alt="A person standing in golden light with hands resting gently over their heart."
+              fill
+              sizes="(max-width: 48rem) 100vw, 720px"
             />
           </figure>
 

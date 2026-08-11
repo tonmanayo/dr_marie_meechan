@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 
 export const metadata: Metadata = {
@@ -89,10 +90,11 @@ export default function TrainingPage() {
             </ul>
           </div>
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/reading-tea.png"
               alt="A practitioner reading quietly with a cup of tea, in soft natural light."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
         </div>

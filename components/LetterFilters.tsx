@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -54,7 +55,7 @@ export function LetterFilters({ posts }: { posts: LetterPost[] }) {
               style={show ? undefined : { display: "none" }}
             >
               <figure className="media media--landscape" style={{ margin: 0 }}>
-                <img src={p.img} alt={p.alt} />
+                <Image src={p.img} alt={p.alt} fill sizes="(max-width: 64rem) 100vw, 33vw" />
               </figure>
               <span className="post-card__topic">{p.topicLabel}</span>
               <h3>{p.title}</h3>

@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { Faq, type FaqEntry } from "@/components/Faq";
+import { faqPageLd } from "@/components/schema";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/sessions" },
@@ -75,6 +77,10 @@ const FAQ: FaqEntry[] = [
 export default function SessionsPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(FAQ)) }}
+      />
       {/* Hero */}
       <section className="section--hero section--parchment">
         <div
@@ -97,10 +103,11 @@ export default function SessionsPage() {
       <section className="section--blush">
         <div className="container split">
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-bench-books.jpg"
               alt="Dr Marie Meechan sitting on a leather bench in a cobalt blazer, smiling warmly, her research on infertility resting beside her."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
           <div className="stack stack-6 reveal">

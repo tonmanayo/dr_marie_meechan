@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 import { LetterFilters } from "@/components/LetterFilters";
 import type { LetterPost } from "@/components/LetterFilters";
+import { letterCollectionLd } from "@/components/schema";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/letters" },
@@ -50,6 +52,10 @@ const POSTS: LetterPost[] = [
 export default function LettersPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(letterCollectionLd(POSTS)) }}
+      />
       {/* Hero with subscribe */}
       <section className="section--hero section--blush">
         <div className="container split">
@@ -131,10 +137,12 @@ export default function LettersPage() {
             </div>
           </div>
           <figure className="media media--hero media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-writing-cafe.jpg"
               alt="Dr Marie Meechan writing in a notebook at a marble cafe table, a cappuccino and her fertility and grief research books beside her."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
+              priority
             />
           </figure>
         </div>

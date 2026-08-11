@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Faq, type FaqEntry } from "@/components/Faq";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
+import { faqPageLd } from "@/components/schema";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/contact" },
@@ -62,6 +63,10 @@ const FAQ: FaqEntry[] = [
 export default function ContactPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqPageLd(FAQ)) }}
+      />
       {/* Hero */}
       <section className="section--hero section--parchment">
         <div

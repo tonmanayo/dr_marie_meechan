@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { RotatingTagline } from "@/components/RotatingTagline";
 import { TestimonialRotator, type Testimonial } from "@/components/TestimonialRotator";
@@ -143,10 +144,12 @@ export default function HomePage() {
             </p>
           </div>
           <figure className="media media--hero media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-hero.jpg"
               alt="Dr Marie Meechan standing in a softly lit, wood-panelled room, holding a cup of coffee and smiling gently."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
+              priority
             />
           </figure>
         </div>
@@ -186,10 +189,11 @@ export default function HomePage() {
             </Link>
           </div>
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-writing.jpg"
               alt="Dr Marie Meechan sitting in a warm leather armchair, writing in a notebook beside a softly glowing lamp and palm."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
         </div>
@@ -199,10 +203,11 @@ export default function HomePage() {
       <section className="section--blush">
         <div className="container split">
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-cafe-books.jpg"
               alt="Dr Marie Meechan at a marble cafe table with a cappuccino and a stack of her fertility and grief research books."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
           <div className="stack stack-6 reveal">

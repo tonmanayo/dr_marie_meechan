@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
@@ -48,7 +49,13 @@ export function SiteHeader() {
             href="/"
             aria-label="Dr Marie Meechan, The Fertility Psychotherapist — home"
           >
-            <img src={LOGO} alt="Dr Marie Meechan, The Fertility Psychotherapist" />
+            <Image
+              src={LOGO}
+              alt="Dr Marie Meechan, The Fertility Psychotherapist"
+              width={1043}
+              height={831}
+              priority
+            />
           </Link>
           <nav className="nav" aria-label="Primary">
             {links}
@@ -78,7 +85,7 @@ export function SiteHeader() {
         aria-label="Site menu"
       >
         <div className="container mobile-menu__top">
-          <img src={LOGO} alt="" />
+          <Image src={LOGO} alt="" width={1043} height={831} />
           <button
             className="mobile-menu__close"
             type="button"

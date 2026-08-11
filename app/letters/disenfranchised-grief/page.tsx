@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { articleLd } from "@/components/schema";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/letters/disenfranchised-grief" },
@@ -11,6 +13,19 @@ export const metadata: Metadata = {
 export default function DisenfranchisedGriefPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleLd({
+              slug: "disenfranchised-grief",
+              headline: "What disenfranchised grief actually means, and why I keep saying it",
+              description: metadata.description ?? "",
+              image: "/assets/img/flowers-linen-wide.png",
+            }),
+          ),
+        }}
+      />
       {/* Article hero */}
       <section className="section--hero section--blush">
         <div
@@ -37,10 +52,11 @@ export default function DisenfranchisedGriefPage() {
             className="media media--landscape reveal"
             style={{ margin: "0 auto var(--space-16)" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/flowers-linen-wide.png"
               alt="Dried flowers resting on soft linen in warm light."
+              fill
+              sizes="(max-width: 48rem) 100vw, 720px"
             />
           </figure>
 

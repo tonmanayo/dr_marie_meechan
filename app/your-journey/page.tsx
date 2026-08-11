@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -33,10 +34,12 @@ export default function YourJourneyPage() {
             </div>
           </div>
           <figure className="media media--hero media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-coffee-window.jpg"
               alt="Dr Marie Meechan in a cobalt blazer, holding a coffee and looking out of a window in warm wood-panelled light."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
+              priority
             />
           </figure>
         </div>
@@ -131,10 +134,11 @@ export default function YourJourneyPage() {
             </p>
           </div>
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/marie-armchair-notebook.jpg"
               alt="Dr Marie Meechan sitting in a leather armchair beside a palm and a warm lamp, holding a notebook and pen."
+              fill
+              sizes="(max-width: 64rem) 100vw, 50vw"
             />
           </figure>
         </div>

@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
+import { articleLd } from "@/components/schema";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/letters/petri-dish-loss" },
@@ -11,6 +13,19 @@ export const metadata: Metadata = {
 export default function PetriDishLossPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(
+            articleLd({
+              slug: "petri-dish-loss",
+              headline: "The petri dish loss: grieving the embryo that never implanted",
+              description: metadata.description ?? "",
+              image: "/assets/img/hands-mug-wide.png",
+            }),
+          ),
+        }}
+      />
       {/* Article hero */}
       <section className="section--hero section--blush">
         <div
@@ -37,10 +52,11 @@ export default function PetriDishLossPage() {
             className="media media--landscape reveal"
             style={{ margin: "0 auto var(--space-16)" }}
           >
-            {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img
+            <Image
               src="/assets/img/hands-mug-wide.png"
               alt="Hands wrapped around a warm ceramic mug in soft light."
+              fill
+              sizes="(max-width: 48rem) 100vw, 720px"
             />
           </figure>
 
