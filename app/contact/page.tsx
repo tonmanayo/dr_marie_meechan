@@ -3,6 +3,7 @@ import { Faq, type FaqEntry } from "@/components/Faq";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/contact" },
   title: "Contact · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "Get in touch with Dr Marie Meechan — fertility psychotherapist, Edinburgh and online. 24-hour response, free 15-minute introductory call, complete confidentiality.",

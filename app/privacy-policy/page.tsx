@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/privacy-policy" },
   title: "Privacy & Cookies Policy · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "How Dr Marie Meechan collects, uses, stores, and protects your personal data, your rights under UK data protection law, and how cookies are used on this website.",

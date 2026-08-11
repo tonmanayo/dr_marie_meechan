@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Faq, type FaqEntry } from "@/components/Faq";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/about" },
   title: "Meet Dr Marie · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "Dr Marie Meechan, PhD: specialist fertility psychotherapist in Edinburgh. Twelve years of lived experience, doctoral research, and a practice built around your whole journey.",

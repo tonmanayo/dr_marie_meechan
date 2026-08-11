@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Faq, type FaqEntry } from "@/components/Faq";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/sessions" },
   title: "How sessions work · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "Online and Edinburgh-based fertility counselling sessions with Dr Marie Meechan, PhD. £90 per session, packages from £499. Free 15-minute introductory call.",

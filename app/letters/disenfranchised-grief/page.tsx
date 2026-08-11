@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/letters/disenfranchised-grief" },
   title: "What disenfranchised grief actually means · Letters from Marie · Dr Marie Meechan, PhD",
   description:
     "Disenfranchised grief is grief that society doesn't recognise or validate. Psychotherapist Dr Marie Meechan explains what it means in the context of fertility loss.",

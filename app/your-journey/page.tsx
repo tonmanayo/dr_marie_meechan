@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/your-journey" },
   title: "Navigating & honouring your unique journey · Dr Marie Meechan, PhD",
   description:
     "Specialist support for IVF, IUI, ICSI, recurrent loss, donor decisions and the grief that often goes unseen. Dr Marie Meechan, PhD — Edinburgh and online.",

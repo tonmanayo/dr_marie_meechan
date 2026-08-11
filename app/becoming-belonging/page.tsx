@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/becoming-belonging" },
   title: "Becoming & belonging · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "Specialist support for the season after fertility treatment — postnatal anxiety, IVF motherhood, and involuntary childlessness. Dr Marie Meechan, PhD.",

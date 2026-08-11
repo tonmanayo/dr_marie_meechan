@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/training" },
   title: "Training & speaking · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "CPD training and speaking for counsellors, NHS teams and reproductive health professionals. Specialist fertility psychotherapy framework, by Dr Marie Meechan, PhD.",

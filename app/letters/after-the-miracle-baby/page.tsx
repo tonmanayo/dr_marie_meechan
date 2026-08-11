@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/letters/after-the-miracle-baby" },
   title: "After the miracle baby · Letters from Marie · Dr Marie Meechan, PhD",
   description:
     "If IVF brought you your baby and you still don't feel okay, you are not alone. Dr Marie Meechan on postnatal anxiety after fertility treatment, and why it makes complete sense.",

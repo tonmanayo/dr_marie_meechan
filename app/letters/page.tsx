@@ -5,6 +5,7 @@ import { LetterFilters } from "@/components/LetterFilters";
 import type { LetterPost } from "@/components/LetterFilters";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/letters" },
   title: "Letters from Marie · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "Writing, reflections and research notes on fertility, loss and beyond — by Dr Marie Meechan, PhD. Subscribe to receive new letters by email.",

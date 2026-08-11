@@ -1,10 +1,15 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { RotatingTagline } from "@/components/RotatingTagline";
 import { TestimonialRotator, type Testimonial } from "@/components/TestimonialRotator";
 import { Faq, type FaqEntry } from "@/components/Faq";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 
-// Metadata for "/" is the site default set in app/layout.tsx; no page-level override needed.
+// Title/description for "/" inherit the site defaults set in app/layout.tsx;
+// only the self-referencing canonical is set here.
+export const metadata: Metadata = {
+  alternates: { canonical: "/" },
+};
 
 const TAGLINE = [
   "A space to know that you are not alone.",

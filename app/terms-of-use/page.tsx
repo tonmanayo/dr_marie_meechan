@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/terms-of-use" },
   title: "Terms & Conditions of Use · Dr Marie Meechan, PhD — The Fertility Psychotherapist",
   description:
     "The terms and conditions governing your use of the Dr Marie Meechan website, including access, intellectual property, disclaimers, liability, and governing law.",

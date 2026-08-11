@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 export const metadata: Metadata = {
+  alternates: { canonical: "/letters/petri-dish-loss" },
   title: "The petri dish loss · Letters from Marie · Dr Marie Meechan, PhD",
   description:
     "A failed IVF transfer is a real loss, even when the world doesn't always treat it that way. Dr Marie Meechan, fertility psychotherapist, on the grief that begins in the clinic.",
