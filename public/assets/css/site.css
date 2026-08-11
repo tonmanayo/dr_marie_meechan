@@ -277,6 +277,19 @@ a.card:hover, .card--link:hover { transform: translateY(-4px); box-shadow: var(-
 .form-success[hidden] { display: none; }
 .form-success i { font-size: 44px; color: var(--color-accent); }
 
+/* ---- legal / policy pages ------------------------------- */
+.legal { line-height: 1.7; }
+.legal h2 { font-size: 1.5rem; margin-top: var(--space-10); margin-bottom: var(--space-3); }
+.legal h3 { font-size: 1.15rem; margin-top: var(--space-6); margin-bottom: var(--space-2); }
+.legal p { margin-bottom: var(--space-4); }
+.legal ol, .legal ul { margin: 0 0 var(--space-4); padding-left: 1.5em; }
+.legal li { margin-bottom: var(--space-2); }
+.legal a { color: var(--color-ink); text-decoration: underline; text-decoration-color: var(--color-rose); text-underline-offset: 0.2em; }
+.legal a:hover { text-decoration-color: var(--color-accent); text-decoration-thickness: 2px; }
+.legal table { width: 100%; border-collapse: collapse; margin: var(--space-4) 0; font-size: 0.9375rem; }
+.legal th, .legal td { border: 1px solid var(--color-blush); padding: 10px 12px; text-align: left; vertical-align: top; }
+.legal th { background: var(--color-blush); font-weight: 600; }
+
 .subscribe { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 .subscribe input { flex: 1 1 240px; }
 .subscribe .btn { flex-shrink: 0; }

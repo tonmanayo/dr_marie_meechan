@@ -363,11 +363,8 @@ export default function HomePage() {
                 <input id="nl-consent" name="consent" type="checkbox" required />
                 <label htmlFor="nl-consent">
                   I would like to receive occasional letters from Marie by email, and I agree to the{" "}
-                  <a href="#">
-                    {/* TODO: privacy page */}
-                    privacy promise
-                  </a>
-                  . You can unsubscribe at any time.
+                  <Link href="/privacy-policy">privacy promise</Link>. You can unsubscribe at any
+                  time.
                 </label>
               </div>
               <button

@@ -279,8 +279,8 @@ export default function ContactPage() {
                   aria-hidden="true"
                   style={{ color: "var(--color-rose)" }}
                 />{" "}
-                <a className="link" href="mailto:hello@drmariemeechan.com">
-                  hello@drmariemeechan.com
+                <a className="link" href="mailto:hello@drmariemeechan.co.uk">
+                  hello@drmariemeechan.co.uk
                 </a>
               </p>
             </div>

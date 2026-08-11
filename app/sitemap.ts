@@ -21,6 +21,8 @@ const ENTRIES: Entry[] = [
   { path: "/letters/after-the-miracle-baby", changeFrequency: "yearly", priority: 0.5 },
   { path: "/letters/disenfranchised-grief", changeFrequency: "yearly", priority: 0.5 },
   { path: "/letters/petri-dish-loss", changeFrequency: "yearly", priority: 0.5 },
+  { path: "/privacy-policy", changeFrequency: "yearly", priority: 0.3 },
+  { path: "/terms-of-use", changeFrequency: "yearly", priority: 0.3 },
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

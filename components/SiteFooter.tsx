@@ -26,9 +26,9 @@ export function SiteFooter() {
         </div>
         <div className="footer-col">
           <span className="eyebrow">Find Marie</span>
-          <a href="mailto:hello@drmariemeechan.com">
+          <a href="mailto:hello@drmariemeechan.co.uk">
             <i className="ph-light ph-envelope-simple" aria-hidden="true" />{" "}
-            hello@drmariemeechan.com
+            hello@drmariemeechan.co.uk
           </a>
           <a href="https://intherapywithmarie.com">
             <i className="ph-light ph-globe-simple" aria-hidden="true" /> intherapywithmarie.com
@@ -53,9 +53,14 @@ export function SiteFooter() {
       <div className="container site-footer__fine">
         <span>© 2026 Dr Marie Meechan, PhD · The Fertility Psychotherapist</span>
         <span>Registered member, British Association for Counselling and Psychotherapy (BACP)</span>
-        <a className="link" href="#">
-          Privacy & ethics
-        </a>
+        <span style={{ display: "flex", gap: "1.25rem", flexWrap: "wrap" }}>
+          <Link className="link" href="/privacy-policy">
+            Privacy &amp; Cookies
+          </Link>
+          <Link className="link" href="/terms-of-use">
+            Terms of Use
+          </Link>
+        </span>
       </div>
     </footer>
   );

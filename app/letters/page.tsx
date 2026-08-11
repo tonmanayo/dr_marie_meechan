@@ -115,12 +115,8 @@ export default function LettersPage() {
                   <input id="sub-consent" name="consent" type="checkbox" required />
                   <label htmlFor="sub-consent">
                     I would like to receive occasional letters from Marie by email, and I agree to
-                    the{" "}
-                    <a href="#">
-                      {/* TODO: privacy page */}
-                      privacy promise
-                    </a>
-                    . You can unsubscribe at any time.
+                    the <Link href="/privacy-policy">privacy promise</Link>. You can unsubscribe at
+                    any time.
                   </label>
                 </div>
                 <button
