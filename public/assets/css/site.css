@@ -130,6 +130,25 @@ p { margin: 0; max-width: 38rem; line-height: 1.75; text-wrap: pretty; }
 /* ---- images --------------------------------------------- */
 .media { position: relative; border-radius: var(--radius-md); overflow: hidden; box-shadow: var(--shadow-soft); background: var(--color-blush); }
 .media img, .media video { width: 100%; height: 100%; object-fit: cover; filter: saturate(0.94) sepia(0.04); }
+/* The intro video is portrait (9:16). On desktop it fills the split column like
+   the image sections (4/5, cover — her head stays in frame at this ratio). When
+   the layout stacks, switch to a true portrait frame so the whole clip shows
+   uncropped instead of being over-cropped in a wide box. */
+.media--video {
+  aspect-ratio: 4 / 5;
+}
+@media (max-width: 64rem) {
+  .media--video {
+    aspect-ratio: 9 / 16;
+    max-width: 360px;
+    margin-inline: auto;
+    justify-self: center;
+    background: #111;
+  }
+  .media--video video {
+    object-fit: contain;
+  }
+}
 .media--hero { border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); }
 .media--portrait { aspect-ratio: 4 / 5; }
 .media--landscape { aspect-ratio: 3 / 2; }

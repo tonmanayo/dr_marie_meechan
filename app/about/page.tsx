@@ -95,10 +95,12 @@ export default function AboutPage() {
               </Link>
             </div>
           </div>
-          <figure className="media media--hero media--portrait reveal" style={{ margin: 0 }}>
+          <figure className="media media--hero media--video reveal" style={{ margin: 0 }}>
             {}
             <video
               controls
+              controlsList="nodownload nofullscreen noremoteplayback"
+              disablePictureInPicture
               playsInline
               preload="metadata"
               poster="/assets/img/marie-armchair.jpg"
