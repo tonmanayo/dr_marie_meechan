@@ -57,7 +57,7 @@ const STRUCTURED_DATA = {
       },
       areaServed: ["Edinburgh", "United Kingdom", "Online worldwide"],
       founder: { "@id": `${SITE_URL}/#marie` },
-      sameAs: ["https://intherapywithmarie.com"],
+      sameAs: ["https://www.drmariemeechan.co.uk"],
     },
     {
       "@type": "Person",

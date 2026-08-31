@@ -36,8 +36,8 @@ export function SiteFooter() {
             <i className="ph-light ph-envelope-simple" aria-hidden="true" />{" "}
             hello@drmariemeechan.co.uk
           </a>
-          <a href="https://intherapywithmarie.com">
-            <i className="ph-light ph-globe-simple" aria-hidden="true" /> intherapywithmarie.com
+          <a href="https://www.drmariemeechan.co.uk">
+            <i className="ph-light ph-globe-simple" aria-hidden="true" /> drmariemeechan.co.uk
           </a>
           <Link href="/contact">
             <i className="ph-light ph-map-pin" aria-hidden="true" /> 37 Mayfield Gardens, Edinburgh

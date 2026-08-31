@@ -121,16 +121,6 @@ export default function YourJourneyPage() {
               companions on this road, hormonal conditions of a woman&rsquo;s reproductive years,
               mostly of the ovaries, and closely bound up with fertility and, for many, with
               infertility. If you are carrying one of them, it is named here too, and held.
-              <span
-                style={{
-                  display: "block",
-                  fontSize: "0.85rem",
-                  color: "var(--color-rose)",
-                  marginTop: "var(--space-3)",
-                }}
-              >
-                After Kirkegaard et al., 2024
-              </span>
             </p>
           </div>
           <figure className="media media--portrait reveal" style={{ margin: 0 }}>
