@@ -40,15 +40,24 @@ export function faqPageLd(items: FaqEntry[]) {
 }
 
 /**
+ * Resolve an image reference to an absolute URL. Local paths (e.g. from
+ * /public) are prefixed with the site origin; already-absolute URLs (e.g. the
+ * Sanity image CDN) are passed through unchanged.
+ */
+function absImage(image: string): string {
+  return /^https?:\/\//.test(image) ? image : `${SITE_URL}${image}`;
+}
+
+/**
  * Build a schema.org Article for a single "Letter from Marie".
- * datePublished is intentionally omitted — the letters are evergreen and carry
- * no reliable publication date.
+ * `datePublished` is included when available (Sanity-authored letters carry one).
  */
 export function articleLd(input: {
   slug: string;
   headline: string;
   description: string;
   image: string;
+  datePublished?: string;
 }) {
   const url = `${SITE_URL}/letters/${input.slug}`;
   return {
@@ -58,7 +67,8 @@ export function articleLd(input: {
     mainEntityOfPage: url,
     headline: input.headline,
     description: input.description,
-    image: `${SITE_URL}${input.image}`,
+    image: absImage(input.image),
+    ...(input.datePublished ? { datePublished: input.datePublished } : {}),
     inLanguage: "en-GB",
     author: MARIE,
     publisher: PRACTICE,
@@ -84,7 +94,7 @@ export function letterCollectionLd(
       headline: post.title,
       description: post.excerpt,
       url: `${SITE_URL}/letters/${post.slug}`,
-      image: `${SITE_URL}${post.img}`,
+      image: absImage(post.img),
       author: MARIE,
     })),
   };

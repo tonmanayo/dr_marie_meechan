@@ -3,7 +3,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { FormWithSuccess } from "@/components/FormWithSuccess";
 import { LetterFilters } from "@/components/LetterFilters";
-import type { LetterPost } from "@/components/LetterFilters";
+import { getLetters } from "@/lib/sanity/queries";
+import { letterToPost } from "@/lib/sanity/letter-to-post";
 import { letterCollectionLd } from "@/components/schema";
 
 export const metadata: Metadata = {
@@ -13,48 +14,13 @@ export const metadata: Metadata = {
     "Writing, reflections and research notes on fertility, loss and beyond — by Dr Marie Meechan, PhD. Subscribe to receive new letters by email.",
 };
 
-const POSTS: LetterPost[] = [
-  {
-    slug: "disenfranchised-grief",
-    topic: "loss" as const,
-    topicLabel: "Loss & grief",
-    img: "/assets/img/flowers-linen-wide.png",
-    alt: "Dried flowers resting on soft linen in warm light.",
-    title: "What disenfranchised grief actually means, and why I keep saying it",
-    excerpt:
-      "The grief society does not make room for, and how naming it begins to lift its weight.",
-    meta: "A letter · 5 min read",
-  },
-  {
-    slug: "petri-dish-loss",
-    topic: "loss" as const,
-    topicLabel: "Loss & grief",
-    img: "/assets/img/hands-mug-wide.png",
-    alt: "Hands wrapped around a warm ceramic mug.",
-    title: "The petri dish loss: grieving the embryo that never implanted",
-    excerpt:
-      "On the losses that have no funeral, no card, no casserole, and why they are losses all the same.",
-    meta: "A letter · 6 min read",
-  },
-  {
-    slug: "after-the-miracle-baby",
-    topic: "beyond" as const,
-    topicLabel: "Beyond fertility",
-    img: "/assets/img/heart-sunset-wide.png",
-    alt: "A person standing in golden light with hands resting over their heart.",
-    title: "After the miracle baby: nobody told me motherhood would feel like this",
-    excerpt:
-      "When the longed-for arrival brings its own grief and anxiety, and why that does not mean you are failing.",
-    meta: "A letter · 5 min read",
-  },
-];
-
-export default function LettersPage() {
+export default async function LettersPage() {
+  const posts = (await getLetters()).map(letterToPost);
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(letterCollectionLd(POSTS)) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(letterCollectionLd(posts)) }}
       />
       {/* Hero with subscribe */}
       <section className="section--hero section--blush">
@@ -151,7 +117,7 @@ export default function LettersPage() {
       {/* Filters + posts */}
       <section className="section--parchment">
         <div className="container">
-          <LetterFilters posts={POSTS} />
+          <LetterFilters posts={posts} />
 
           <div
             className="notice reveal mt-12"

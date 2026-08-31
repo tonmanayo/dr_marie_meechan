@@ -80,7 +80,7 @@ const STRUCTURED_DATA = {
   ],
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function SiteLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en-GB">
       <head>
