@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { SiteHeader } from "@/components/SiteHeader";
 import { SiteFooter } from "@/components/SiteFooter";
 import { RevealObserver } from "@/components/RevealObserver";
+import { CookieConsent } from "@/components/CookieConsent";
 
 const SITE_URL = "https://www.drmariemeechan.co.uk";
 const SITE_TITLE =
@@ -103,6 +104,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
         <main id="main">{children}</main>
         <SiteFooter />
         <RevealObserver />
+        <CookieConsent />
       </body>
     </html>
   );

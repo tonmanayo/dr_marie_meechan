@@ -31,3 +31,8 @@ vi.mock("next/link", () => ({
     );
   },
 }));
+
+// next/script → render nothing in tests (we only assert consent behaviour).
+vi.mock("next/script", () => ({
+  default: () => null,
+}));

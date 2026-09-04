@@ -395,13 +395,17 @@ export default function PrivacyPolicyPage() {
             great care to ensure that your privacy is not at risk by allowing them.
           </p>
           <p>
-            c. This website is hosted on Netlify and built with Next.js. It does not use analytics,
-            advertising, or tracking cookies, and it does not embed third-party analytics or
-            advertising services. Our newsletter sign-up and contact form are processed securely on
-            the server and do not place tracking cookies in your browser. The only cookies that may
-            be set are those strictly necessary for the secure operation and delivery of Our Site by
-            Our hosting platform; these are not used to identify you or to track your activity
-            across other websites.
+            c. This website is hosted on Netlify and built with Next.js. We use Google Analytics to
+            understand how visitors use Our Site so that We can improve it. Google Analytics sets
+            analytics cookies and is only loaded <strong>after you have given your consent</strong>{" "}
+            via the cookie banner shown when you first visit. If you decline, or until you accept,
+            no Google Analytics cookies are set and no analytics data is collected. You can change
+            your choice at any time using the “Cookie preferences” link in the footer. We do not use
+            advertising cookies, and We do not sell your data. Our newsletter sign-up and contact
+            form are processed securely on the server and do not place tracking cookies in your
+            browser. The only other cookies that may be set are those strictly necessary for the
+            secure operation and delivery of Our Site by Our hosting platform; these are not used to
+            identify you or to track your activity across other websites.
           </p>
           <p>
             d. In addition to the controls that We provide, you can choose to enable or disable

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { CookieSettingsLink } from "@/components/CookieSettingsLink";
 
 const LOGO = "/assets/img/logo-stacked-bold.png";
 
@@ -66,6 +67,7 @@ export function SiteFooter() {
           <Link className="link" href="/terms-of-use">
             Terms of Use
           </Link>
+          <CookieSettingsLink />
         </span>
       </div>
     </footer>
