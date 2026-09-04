@@ -98,8 +98,8 @@ export function CookieConsent() {
         <div className="cookie-banner" role="dialog" aria-live="polite" aria-label="Cookie consent">
           <div className="cookie-banner__inner">
             <p className="cookie-banner__text">
-              I use a little analytics to understand how this site is used, so I can keep making it
-              better. It is entirely your choice, and you can change your mind any time. See the{" "}
+              I use analytics to understand how this site is used, so I can keep improving it — only
+              with your consent. See the{" "}
               <Link href="/privacy-policy">Privacy &amp; Cookies Policy</Link>.
             </p>
             <div className="cookie-banner__actions">

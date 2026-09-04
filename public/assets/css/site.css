@@ -490,6 +490,9 @@ a.card:hover, .card--link:hover { transform: translateY(-4px); box-shadow: var(-
 .cookie-banner__actions { display: flex; gap: var(--space-3); flex-wrap: wrap; }
 .cookie-banner .btn { padding-block: 10px; }
 @media (max-width: 40rem) {
-  .cookie-banner__actions { width: 100%; }
-  .cookie-banner__actions .btn { flex: 1; justify-content: center; }
+  .cookie-banner { padding: 14px 18px calc(20px + env(safe-area-inset-bottom, 0px)); }
+  .cookie-banner__inner { gap: 12px; }
+  .cookie-banner__text { font-size: 0.85rem; line-height: 1.45; min-width: 0; }
+  .cookie-banner__actions { width: 100%; gap: 10px; }
+  .cookie-banner__actions .btn { flex: 1; justify-content: center; padding-block: 12px; }
 }
