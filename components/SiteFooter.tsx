@@ -11,8 +11,8 @@ export function SiteFooter() {
           <Image
             src={LOGO}
             alt="Dr Marie Meechan, The Fertility Psychotherapist"
-            width={1043}
-            height={831}
+            width={2000}
+            height={2000}
           />
           <p>Specialist psychotherapy for your whole self — not just your fertility.</p>
         </div>

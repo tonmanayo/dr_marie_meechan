@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { Faq, type FaqEntry } from "@/components/Faq";
+import { IntroVideo } from "@/components/IntroVideo";
 
 export const metadata: Metadata = {
   alternates: { canonical: "/about" },
@@ -96,18 +97,11 @@ export default function AboutPage() {
             </div>
           </div>
           <figure className="media media--hero media--video reveal" style={{ margin: 0 }}>
-            {}
-            <video
-              controls
-              controlsList="nodownload nofullscreen noremoteplayback"
-              disablePictureInPicture
-              playsInline
-              preload="metadata"
+            <IntroVideo
+              src="/assets/img/marie-intro.mp4"
               poster="/assets/img/marie-armchair.jpg"
-              aria-label="A short introduction from Dr Marie Meechan"
-            >
-              <source src="/assets/img/marie-intro.mp4" type="video/mp4" />
-            </video>
+              label="A short introduction from Dr Marie Meechan"
+            />
           </figure>
         </div>
       </section>

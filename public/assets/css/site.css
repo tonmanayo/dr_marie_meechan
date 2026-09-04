@@ -149,6 +149,50 @@ p { margin: 0; max-width: 38rem; line-height: 1.75; text-wrap: pretty; }
     object-fit: contain;
   }
 }
+
+/* ---- custom video player (brand controls, consistent across browsers) ---- */
+.videoplayer { position: relative; width: 100%; height: 100%; }
+.videoplayer__el { display: block; cursor: pointer; }
+.videoplayer__big {
+  position: absolute; inset: 0; margin: auto;
+  width: 72px; height: 72px; border: 0; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(245, 239, 230, 0.9); color: var(--color-ink);
+  cursor: pointer; box-shadow: var(--shadow-soft);
+  transition: transform var(--motion-quick, 0.2s) var(--ease-gentle, ease), background 0.2s;
+}
+.videoplayer__big i { font-size: 34px; margin-left: 4px; }
+.videoplayer__big:hover { transform: scale(1.06); background: var(--color-white); }
+.videoplayer__bar {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  display: flex; align-items: center; gap: 10px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom, 0px));
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0));
+}
+.videoplayer__btn {
+  flex: none; border: 0; background: transparent; color: #fff; cursor: pointer;
+  display: inline-flex; align-items: center; justify-content: center; padding: 4px; line-height: 0;
+}
+.videoplayer__btn i { font-size: 22px; }
+.videoplayer__time {
+  color: #fff; font-size: 0.8rem; font-variant-numeric: tabular-nums; white-space: nowrap;
+}
+.videoplayer__seek { flex: 1; min-width: 40px; }
+.videoplayer__vol { flex: none; width: 68px; }
+.videoplayer__seek, .videoplayer__vol {
+  accent-color: var(--color-accent); height: 4px; cursor: pointer;
+}
+.videoplayer__btn:focus-visible, .videoplayer__seek:focus-visible,
+.videoplayer__vol:focus-visible, .videoplayer__big:focus-visible {
+  outline: 2px solid var(--color-accent); outline-offset: 2px;
+}
+@media (prefers-reduced-motion: reduce) {
+  .videoplayer__big { transition: none; }
+}
+@media (max-width: 30rem) {
+  .videoplayer__vol { display: none; }
+}
+
 .media--hero { border-radius: var(--radius-lg); box-shadow: var(--shadow-lift); }
 .media--portrait { aspect-ratio: 4 / 5; }
 .media--landscape { aspect-ratio: 3 / 2; }

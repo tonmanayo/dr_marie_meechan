@@ -52,8 +52,8 @@ export function SiteHeader() {
             <Image
               src={LOGO}
               alt="Dr Marie Meechan, The Fertility Psychotherapist"
-              width={1043}
-              height={831}
+              width={2000}
+              height={2000}
               priority
             />
           </Link>
@@ -85,7 +85,7 @@ export function SiteHeader() {
         aria-label="Site menu"
       >
         <div className="container mobile-menu__top">
-          <Image src={LOGO} alt="" width={1043} height={831} />
+          <Image src={LOGO} alt="" width={2000} height={2000} />
           <button
             className="mobile-menu__close"
             type="button"
