@@ -1,7 +1,7 @@
-§# SEO & Discovery — Dr Marie Meechan, PhD
+# SEO & Discovery — Dr Marie Meechan, PhD
 
 Site: **https://www.drmariemeechan.co.uk** · Stack: Next.js (App Router) on Netlify.
-Status: all items below are merged to `main` and live. One item (Google Analytics) is pending — see the end.
+Status: all items below are merged to `main` and live, including Google Analytics with consent (section 9).
 
 ---
 
@@ -36,7 +36,7 @@ Set site-wide in `app/layout.tsx` and per-page overrides:
 
 Site-wide `@graph` injected in `app/layout.tsx`:
 
-- **`ProfessionalService`** (`#practice`) — name "Dr Marie Meechan, PhD — The Fertility Psychotherapist", `email` hello@drmariemeechan.co.uk, `telephone` +447852813610, `priceRange` ££, `PostalAddress` (37 Mayfield Gardens, Edinburgh, EH9 2BX, GB), `areaServed` [Edinburgh, United Kingdom, Online worldwide], `founder` → the Person below, `sameAs` [intherapywithmarie.com]
+- **`ProfessionalService`** (`#practice`) — name "Dr Marie Meechan, PhD — The Fertility Psychotherapist", `email` hello@drmariemeechan.co.uk, `telephone` +447852813610, `priceRange` ££, `PostalAddress` (37 Mayfield Gardens, Edinburgh, EH9 2BX, GB), `areaServed` [Edinburgh, United Kingdom, Online worldwide], `founder` → the Person below
 - **`Person`** (`#marie`) — Dr Marie Meechan, `jobTitle` Fertility Psychotherapist, `hasCredential` (PhD in Counselling Studies, University of Edinburgh; BACP registered member), `worksFor` → the practice
 - **`WebSite`** (`#website`) — `inLanguage` en-GB
 
